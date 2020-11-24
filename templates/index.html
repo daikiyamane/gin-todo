@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TODOアプリ(Golang * gin * gorm)</title>
+</head>
+<body>
+    <h1>TODOアプリ</h1>
+<form method="POST" action="/">
+    <p>NAME : <input type="text" name="name" value=""> Todo : <input type="text" name="content" value=""></p>
+    <input type="submit" value="SUBMIT">
+</form>
+
+<br>
+
+<ul>
+    {{ range .todos }}
+        <li>
+            <form method="POST" action="/delete/{{.ID}}">
+              NAME {{.CreatedBy}}  : TODO {{ .Content }} [<a href="/{{.ID}}">EDIT</a>]
+                <input type="submit" value="削除">
+            </form>
+        </li>
+    {{end}}
+</ul>
+
+</body>
+</html>

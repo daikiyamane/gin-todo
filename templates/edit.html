@@ -7,8 +7,25 @@
 <body>
     <h1>TODOアプリ</h1>
 <form method="POST" action="/update/{{.todo.ID}}">
-    <p>NAME<input type="text" name="name" value="{{.todo.CreatedBy}}"></p>
-    <p>TODO<input type="text" name="content" value="{{.todo.Content}}"></p>
+    <p>名前<input type="text" name="name" value="{{.todo.CreatedBy}}"></p>
+    <p>やること<input type="text" name="content" value="{{.todo.Content}}"></p>
+    <p>状態
+        <select name="status">
+            {{if eq .todo.Status "未実行"}}
+                <option value="未実行" selected>未実行</option>
+                <option value="実行中">実行中</option>
+                <option value="終了">終了</option>
+            {{else if eq .todo.Status "実行中"}}
+                <option value="未実行">未実行</option>
+                <option value="実行中" selected>実行中</option>
+                <option value="終了">終了</option>
+            {{else}}
+                <option value="未実行">未実行</option>
+                <option value="実行中">実行中</option>
+                <option value="終了" selected>終了</option>
+            {{end}}
+        </select>
+    </p>
     <input type="submit" value="更新">
 </form>
 </body>

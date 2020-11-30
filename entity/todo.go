@@ -9,5 +9,5 @@ type Todo struct {
 	gorm.Model
 	CreatedBy string `form:"name" gorm:"NOT NULL"`
 	Content   string `form:"content" gorm:"NOT NULL"`
-	Done      bool
+	Status    string `form:"status"`
 }

@@ -7,7 +7,14 @@
 <body>
     <h1>TODOアプリ</h1>
 <form method="POST" action="/">
-    <p>NAME : <input type="text" name="name" value=""> Todo : <input type="text" name="content" value=""></p>
+    <p>名前 : <input type="text" name="name" value=""> やること : <input type="text" name="content" value=""></p>
+    <p>状態
+        <select name="status">
+            <option value="未実行">未実行</option>
+            <option value="実行中">実行中</option>
+            <option value="終了">終了</option>
+        </select>
+    </p>
     <input type="submit" value="SUBMIT">
 </form>
 
@@ -17,8 +24,9 @@
     {{ range .todos }}
         <li>
             <form method="POST" action="/delete/{{.ID}}">
-              NAME {{.CreatedBy}}  : TODO {{ .Content }} [<a href="/{{.ID}}">EDIT</a>]
-                <input type="submit" value="削除">
+              名前: {{.CreatedBy}} やること: {{ .Content }} 状態: {{.Status}}
+              <label><button><a href="/{{.ID}}">編集</a></button></label>
+              <label><input type="submit" value="削除"></label>
             </form>
         </li>
     {{end}}

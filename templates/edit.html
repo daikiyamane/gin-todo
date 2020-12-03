@@ -2,13 +2,13 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>TODOアプリ(Golang * gin * gorm)</title>
+    <title>TODOアプリ</title>
 </head>
 <body>
     <h1>TODOアプリ</h1>
 <form method="POST" action="/update/{{.todo.ID}}">
-    <p>名前<input type="text" name="name" value="{{.todo.CreatedBy}}"></p>
-    <p>やること<input type="text" name="content" value="{{.todo.Content}}"></p>
+    <p>名前<input type="text" name="name" value={{.todo.CreatedBy}}></p>
+    <p>やること<input type="text" name="content" value={{.todo.Content}}></p>
     <p>状態
         <select name="status">
             {{if eq .todo.Status "未実行"}}

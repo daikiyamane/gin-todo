@@ -7,7 +7,7 @@ import (
 //Todo is Model
 type Todo struct {
 	gorm.Model
-	CreatedBy string `form:"name" gorm:"NOT NULL"`
-	Content   string `form:"content" gorm:"NOT NULL"`
+	CreatedBy string `form:"name" gorm:"not null"`
+	Content   string `form:"content" gorm:"not null"`
 	Status    string `form:"status"`
 }
